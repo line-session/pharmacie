@@ -1,29 +1,19 @@
 # Pharmacie Project
 
-## Exigences
+## Requirements
 
-1. Installer Mysql
-```sh
-   sudo apt update
-   sudo apt install mysql
-   ```
+1. Disposer d'une base de données : `pharmacie`.
+2. Ajouter les tables `pharmacien`, `medicament`, `acheteur` :   
+   Astuce : Connectez-vous sur MySQL puis exécutez `"mysql> source chemin/vers/SQL/run.sql"` dans MySQL.
 
-2. Disposer d'une base de données : `pharmacie`.
-3. Ajouter les tables `pharmacien`, `medicament`, `acheteur`.
+## Execution du Projet Pharmacie
 
-   Astuce : Connectez-vous sur MySQL puis exécutez ```mysql> source chemin/vers/pharmacie/SQL/run.sql``` sous l'utilisateur root dans MySQL.
-
-
-## Exécution du Projet Pharmacie
-
-1. Télécharger VScode / Eclipse-IDE
-2. Executer sur le terminal:
-  ```sh
-   git clone https://github.com/line-session/pharmacie.git
-   ```
-4. Ouvrir le fichier `src/Classes/Main.java` sur vscode
-5. Appuyer sur `Run` 
-
+1. Télécharger VScode / eclipse-ide.
+2. Ouvrir le projet Pharmacie.
+3. Modifier le fichier `config.properties` (base de données, utilisateur, mot de passe) en fonction de votre SGBD.
+4. Exécuter `ConnexionDB.java` pour vérifier la connexion vers votre SGBD.
+5. Ouvrir `/src/classes/Main.java`.
+6. Appuyer sur `Run`.
 
 ## Principe de Fonctionnement du Projet
 
