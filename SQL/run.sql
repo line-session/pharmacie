@@ -1,0 +1,87 @@
+create user 'user1'@'localhost' identified by 'passer';
+grant all privileges on *.* to 'user1'@'localhost';
+flush privileges;
+create DATABASE pharmacie;
+use pharmacie;
+CREATE TABLE acheteur (
+	ID int NOT NULL AUTO_INCREMENT,
+	Nom varchar(10) NOT NULL,
+	Prenom varchar(10) NOT NULL,
+	Age int NOT NULL,
+	CIN varchar(13) NOT NULL,
+	PRIMARY KEY (ID));
+CREATE TABLE IF NOT EXISTS medicament (
+    ID int NOT NULL AUTO_INCREMENT,
+    Nom varchar(20) NOT NULL,
+    Code varchar(20) NOT NULL,
+    Prix int NOT NULL,
+    Descriptions text,
+    DateExpiration date,
+    StockDisponible int NOT NULL,
+    PRIMARY KEY (ID));
+CREATE TABLE IF NOT EXISTS pharmacien (
+    ID int NOT NULL AUTO_INCREMENT,
+    Nom varchar(15) NOT NULL,
+    Prenom varchar(30) NOT NULL,
+    Sexe varchar(10),
+    Addresse varchar(50),
+    Salaire int NOT NULL,
+    PRIMARY KEY (ID));
+INSERT INTO medicament (Nom, Code, Prix, Descriptions, DateExpiration, StockDisponible) 
+VALUES 
+('Paracetamol', 'PARA001','100', 'Pain reliever and fever reducer', '2024-06-01', 500),
+('Amoxicillin', 'AMOX002','500', 'Antibiotic used to treat various bacterial infections', '2024-08-15', 300),
+('Lisinopril', 'LISI003','2000', 'Angiotensin-converting enzyme (ACE) inhibitor used to treat high blood pressure and heart failure', '2024-07-20', 200),
+('Simvastatin', 'SIMV004','550', 'Lipid-lowering medication used to reduce the risk of heart disease and stroke', '2024-09-30', 400),
+('Omeprazole', 'OMEP005','1540',  'Proton pump inhibitor used to reduce stomach acid and treat gastroesophageal reflux disease (GERD)', '2024-08-10', 600),
+('Atorvastatin', 'ATOR006','1250', 'Lipid-lowering medication used to treat high cholesterol and reduce the risk of heart attack and stroke', '2024-10-05', 350),
+('Metformin', 'METF007','18700', 'Oral diabetes medicine used to control blood sugar levels in people with type 2 diabetes', '2024-07-15', 450),
+('Losartan', 'LOSA008','1450', 'Angiotensin II receptor blocker (ARB) used to treat high blood pressure and heart failure', '2024-09-25', 250),
+('Albuterol', 'ALBU009','1500', 'Bronchodilator used to treat bronchospasm and symptoms of asthma and chronic obstructive pulmonary disease (COPD)', '2024-08-30', 150),
+('Warfarin', 'WARF010','18020', 'Anticoagulant used to treat and prevent blood clots in veins and arteries', '2024-09-15', 100),
+('Ibuprofen', 'IBUP011','1100', 'Nonsteroidal anti-inflammatory drug (NSAID) used to treat pain, fever, and inflammation', '2024-07-05', 700),
+('Ciprofloxacin', 'CIPR012','11520', 'Antibiotic used to treat various bacterial infections', '2024-08-20', 250),
+('Amlodipine', 'AMLO013','19005', 'Calcium channel blocker used to treat high blood pressure and coronary artery disease', '2024-09-10', 300),
+('Metoprolol', 'METO014','14025', 'Beta blocker used to treat high blood pressure, chest pain, and heart failure', '2024-10-15', 400),
+('Hydrochlorothiazide', 'HYDR015','15400', 'Diuretic used to treat high blood pressure and fluid retention', '2024-06-30', 200),
+('Prednisone', 'PRED016','1500', 'Corticosteroid used to treat allergic disorders, skin conditions, arthritis, and more', '2024-08-25', 600),
+('Levothyroxine', 'LEVO017','500', 'Thyroid hormone replacement used to treat hypothyroidism', '2024-07-15', 350),
+('Metronidazole', 'METR018','1500', 'Antibiotic and antiprotozoal medication used to treat bacterial and parasitic infections', '2024-09-05', 450),
+('Fluoxetine', 'FLUO019','15500', 'Selective serotonin reuptake inhibitor (SSRI) used to treat depression, panic disorder, and other mental health conditions', '2024-10-20', 150),
+('Doxycycline', 'DOXY020','5200', 'Antibiotic used to treat bacterial infections, including acne and malaria', '2024-07-10', 500),
+('Loratadine', 'LORA021','5400', 'Antihistamine used to treat allergy symptoms such as sneezing, runny nose, and itching', '2024-08-01', 350),
+('Tramadol', 'TRAM022','5050', 'Opioid analgesic used to treat moderate to severe pain', '2024-09-30', 250),
+('Gabapentin', 'GABA023','5210', 'Anticonvulsant and neuropathic pain medication used to treat epilepsy and nerve pain', '2024-06-15', 400),
+('Cephalexin', 'CEPH024','5770', 'Antibiotic used to treat bacterial infections, including respiratory tract infections and skin infections', '2024-07-25', 300),
+('Metformin', 'METF025','1450', 'Oral diabetes medicine used to control blood sugar levels in people with type 2 diabetes', '2024-08-15', 450),
+('Trazodone', 'TRAZ026','500', 'Serotonin antagonist and reuptake inhibitor (SARI) antidepressant used to treat depression and anxiety disorders', '2024-10-10', 200),
+('Furosemide', 'FURO027','5020', 'Loop diuretic used to treat fluid retention (edema) and high blood pressure', '2024-06-20', 550),
+('Alprazolam', 'ALPR028','50014', 'Benzodiazepine anxiolytic used to treat anxiety and panic disorders', '2024-09-01', 300),
+('Azithromycin', 'AZIT029','4520', 'Antibiotic used to treat a wide variety of bacterial infections', '2024-07-30', 400),
+('Citalopram', 'CITA030','1450', 'Selective serotonin reuptake inhibitor (SSRI) antidepressant used to treat depression and anxiety disorders', '2024-08-05', 350),
+('Acetaminophen', 'ACET031','500', 'Pain reliever and fever reducer commonly used for headaches, muscle aches, and arthritis', '2024-07-15', 800),
+('Clarithromycin', 'CLAR032','4500', 'Antibiotic used to treat bacterial infections such as pneumonia, bronchitis, and sinusitis', '2024-08-20', 350),
+('Bupropion', 'BUPR033','6500', 'Atypical antidepressant used to treat depression and aid in smoking cessation', '2024-09-10', 400),
+('Rosuvastatin', 'ROSU034','7500', 'Statins medication used to lower cholesterol and reduce the risk of heart disease and stroke', '2024-10-15', 200),
+('Prednisolone', 'PRED035','5500', 'Corticosteroid medication used to treat a variety of conditions including inflammation, allergies, and autoimmune diseases', '2024-06-30', 600),
+('Sildenafil', 'SILD036','8500', 'Phosphodiesterase type 5 (PDE5) inhibitor used to treat erectile dysfunction and pulmonary arterial hypertension', '2024-08-25', 450),
+('Escitalopram', 'ESCI037','9500', 'Selective serotonin reuptake inhibitor (SSRI) antidepressant used to treat depression and anxiety disorders', '2024-07-15', 300),
+('Fexofenadine', 'FEXO038','5500', 'Second-generation antihistamine used to relieve allergy symptoms such as sneezing, itching, and runny nose', '2024-09-05', 500),
+('Venlafaxine', 'VENL039','5000', 'Serotonin-norepinephrine reuptake inhibitor (SNRI) antidepressant used to treat depression and anxiety disorders', '2024-10-20', 350),
+('Levofloxacin', 'LEVO040','14520', 'Fluoroquinolone antibiotic used to treat bacterial infections of the skin, sinuses, kidneys, bladder, and prostate', '2024-07-10', 250),
+('Metronidazole', 'METR041','1450', 'Antibiotic and antiprotozoal medication used to treat bacterial and parasitic infections', '2024-08-01', 400),
+('Naproxen', 'NAPR042','1450', 'Nonsteroidal anti-inflammatory drug (NSAID) used to relieve pain, swelling, and stiffness caused by arthritis, gout, and other conditions', '2024-09-30', 450),
+('Montelukast', 'MONTE043','4500', 'Leukotriene receptor antagonist used to prevent asthma and to treat seasonal allergies', '2024-06-15', 200),
+('Pantoprazole', 'PANT044','7500', 'Proton pump inhibitor (PPI) used to treat erosive esophagitis and other conditions involving excess stomach acid production', '2024-07-25', 300),
+('Budesonide', 'BUDE045','4500', 'Corticosteroid medication used to treat asthma, COPD, inflammatory bowel disease (IBD), and nasal polyps', '2024-08-15', 550),
+('Duloxetine', 'DULO046','5300', 'Serotonin-norepinephrine reuptake inhibitor (SNRI) antidepressant used to treat depression, anxiety, and nerve pain', '2024-10-10', 300),
+('Esomeprazole', 'ESOM047','78500', 'Proton pump inhibitor (PPI) used to treat gastroesophageal reflux disease (GERD) and other conditions involving excess stomach acid production', '2024-06-20', 400),
+('Fluconazole', 'FLUC048','14500', 'Antifungal medication used to treat infections caused by fungus, including yeast infections of the mouth, throat, esophagus, and other organs', '2024-09-01', 350),
+('Lisinopril', 'LISI049','15500', 'Angiotensin-converting enzyme (ACE) inhibitor used to treat high blood pressure, heart failure, and to improve survival after heart attack', '2024-07-30', 250),
+('Tadalafil', 'TADA050','41500', 'Phosphodiesterase type 5 (PDE5) inhibitor used to treat erectile dysfunction (impotence) and symptoms of benign prostatic hyperplasia (enlarged prostate)', '2024-08-05', 400);
+INSERT INTO pharmacien(Nom, Prenom, Sexe, Addresse, Salaire) VALUES 
+('SOW', 'Ousmane', 'Masculin', 'Parcelles Assainies U17', 1000000),
+('SEYE', 'Libasse', 'Masculin', 'SOPRIM', 500000) ,
+('SALL', 'Mouhamed Madeniyou', 'Masculin', 'THIES', 500000),
+('LO', 'Ibrahim', 'Masculin', 'Parcelles Assainies U26', 5000000),
+('Mbacke', 'Mame Diarra', 'Feminin', 'MBOUR', 500000); 
