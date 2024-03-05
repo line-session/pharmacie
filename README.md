@@ -8,9 +8,9 @@
 
 ## Execution du Projet Pharmacie
 
-1. Télécharger VScode / eclipse-ide.
-2. Ouvrir le projet Pharmacie.
-3. Modifier le fichier `config.properties` (base de données, utilisateur, mot de passe) en fonction de votre SGBD.
+1. Télécharger Vscode / Eclipse.
+2. Ouvrir le projet pharmacie.
+3. Modifier le fichier `Config.properties` (base de données, utilisateur, mot de passe) en fonction de votre SGBD.
 4. Exécuter `ConnexionDB.java` pour vérifier la connexion vers votre SGBD.
 5. Ouvrir `/src/classes/Main.java`.
 6. Appuyer sur `Run`.
