@@ -296,7 +296,7 @@ public class pharmacien {
                     else{
                         continue zoneAuthentification;
                     }}
-            } while (!user.equals("root") || !password.equals("passer"));
+            } while (!user.equals("root") || !password.equals("admin"));
 			return 0;
 	}
 
